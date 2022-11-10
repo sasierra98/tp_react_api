@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route, Link } from "react-router-dom";
 
 import { ConsultantList } from "./Components/ConsultantList";
+import { AddConsultant } from "./Components/AddConsultant";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <div className="navbar-nav mr-auto">
           <li className="nav-item">
             <Link to={"/add/"} className="nav-link">
-              Add a menu
+              Add a consultant
             </Link>
           </li>
         </div>
@@ -23,6 +24,7 @@ function App() {
       <div className="container m-10">
         <Routes>
           <Route path="/" element={< ConsultantList />} />
+          <Route path="/add" element={ < AddConsultant />} />
         </Routes>
       </div>
     </div>
