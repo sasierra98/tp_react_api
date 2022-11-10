@@ -38,8 +38,11 @@ export const AddConsultant = () => {
                 setConsultant({
                     id: response.data.id,
                     name: response.data.name,
-                    description: response.data.description,
-                    price: response.data.price,
+                    sex: response.data.sex,
+                    position: response.data.position,
+                    identification: response.data.identification,
+                    city: response.data.city,
+                    age: response.data.age
                 });
                 setSubmitted(true);
                 console.log(response.data);
@@ -62,7 +65,7 @@ export const AddConsultant = () => {
                         className="alert alert-success alert-dismissible fade show"
                         role="alert"
                     >
-                        Menu Added! 
+                        Consultant Added! 
                         <a href="/">
                             <button
                                 type="button"

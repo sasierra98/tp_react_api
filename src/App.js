@@ -4,6 +4,7 @@ import { Routes, Route, Link } from "react-router-dom";
 
 import { ConsultantList } from "./Components/ConsultantList";
 import { AddConsultant } from "./Components/AddConsultant";
+import { UpdateConsultant } from "./Components/UpdateConsultant";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={< ConsultantList />} />
           <Route path="/add" element={ < AddConsultant />} />
+          <Route path="/update/:id" element={ < UpdateConsultant />} />
         </Routes>
       </div>
     </div>

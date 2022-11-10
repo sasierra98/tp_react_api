@@ -7,10 +7,10 @@ export const ConsultantList = () => {
     const [consultants, setConsultants] = useState([]);
 
     useEffect(() => {
-        retrieveAllMenus();
+        retrieveAllConsultants();
       }, []);
 
-    const retrieveAllMenus = () => {
+    const retrieveAllConsultants = () => {
         API.get(`/consultant`)
             .then((response) => {
                 setConsultants(response.data);
@@ -50,11 +50,13 @@ export const ConsultantList = () => {
                                         className="fa fa-pencil-square text-primary d-inline"
                                         aria-hidden="true"
                                         type="button"
+                                    // onClick={() => selectConsultant(consultant.id)}
                                     ></i>
                                     <i
                                         className="fa fa-trash-o text-danger d-inline mx-3"
                                         aria-hidden="true"
                                         type="button"
+                                    // onClick={() => onDelete(consultant.id)}
                                     ></i>
                                 </td>
                             </tr>
