@@ -1,14 +1,33 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { Table } from "react-bootstrap"
+
 import API from "../Services/ConsultantService"
 
-import {Table} from "react-bootstrap"
-
 export const ConsultantList = () => {
+    const navigate = useNavigate();
+
     const [consultants, setConsultants] = useState([]);
+    const [deleted, setDeleted] = useState(false);
+
+
+    const deleteConsultant = (id) => {
+        API
+            .delete(`/consultant/${id}`)
+            .then((response) => {
+                setDeleted(true);
+                retrieveAllConsultants();
+            })
+            .catch((e) => {
+                console.error(e);
+            });
+    };
+
 
     useEffect(() => {
         retrieveAllConsultants();
-      }, []);
+    }, []);
 
     const retrieveAllConsultants = () => {
         API.get(`/consultant`)
@@ -18,6 +37,10 @@ export const ConsultantList = () => {
             .catch((e) => {
                 console.error(e);
             })
+    };
+
+    const updateConsultant = (id) => {
+        navigate(`/update/${id}`);
     };
 
     return (
@@ -50,13 +73,13 @@ export const ConsultantList = () => {
                                         className="fa fa-pencil-square text-primary d-inline"
                                         aria-hidden="true"
                                         type="button"
-                                    // onClick={() => selectConsultant(consultant.id)}
+                                        onClick={() => updateConsultant(consultant.id)}
                                     ></i>
                                     <i
                                         className="fa fa-trash-o text-danger d-inline mx-3"
                                         aria-hidden="true"
                                         type="button"
-                                    // onClick={() => onDelete(consultant.id)}
+                                        onClick={() => deleteConsultant(consultant.id)}
                                     ></i>
                                 </td>
                             </tr>
@@ -65,5 +88,5 @@ export const ConsultantList = () => {
                 </tbody>
             </Table>
         </div>
-    ); 
+    );
 };
