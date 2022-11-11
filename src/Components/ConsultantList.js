@@ -44,7 +44,7 @@ export const ConsultantList = () => {
     };
 
     return (
-        <div className="col-md-8 m">
+        <div className="container mt-5">
             <Table>
                 <thead>
                     <tr>

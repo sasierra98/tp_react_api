@@ -10,7 +10,7 @@ export const UpdateConsultant = () => {
         identification: "",
         city: "",
         sex: "",
-        age: "",
+        age: ""
     };
 
     let { id } = useParams();
@@ -40,7 +40,7 @@ export const UpdateConsultant = () => {
                     city: response.data.city,
                     age: response.data.age
                 });
-                console.log(currentConsultant);
+                console.log(response.data);
             })
             .catch((e) => {
                 console.error(e);
@@ -107,9 +107,9 @@ export const UpdateConsultant = () => {
                     </button>
                 </div>
             ) : (
-                <div>
-                    <div className="form-group">
-                        <label htmlFor="name">Name</label>
+                <div className="container">
+                    <div className="form-group mt-5">
+                        <label className="form-label" htmlFor="name">Name</label>
                         <input
                             type="text"
                             className="form-control"
@@ -121,35 +121,42 @@ export const UpdateConsultant = () => {
                         />
                     </div>
 
-                    <div className="form-group">
-                        <label htmlFor="sex">Genre</label>
-                        <input
+                    <div className="form-group mt-3">
+                        <label className="form-label" htmlFor="sex">Genre</label>
+                        <select
                             type="text"
-                            className="form-control"
+                            className="form-select"
                             id="sex"
                             required
                             value={currentConsultant.sex}
                             onChange={handleConsultantChange}
                             name="sex"
-
-                        />
+                        >
+                            <option value={"Male"}>Male</option>
+                            <option value={"Female"}>Female</option>
+                        </select>
                     </div>
 
-                    <div className="form-group">
-                        <label htmlFor="position">Position</label>
-                        <input
+                    <div className="form-group mt-3">
+                        <label className="form-label" htmlFor="position">Position</label>
+                        <select
                             type="text"
-                            className="form-control"
+                            className="form-select"
                             id="position"
                             required
                             value={currentConsultant.position}
                             onChange={handleConsultantChange}
                             name="position"
-                        />
+                        >
+                            <option value={1}>Consultant</option>
+                            <option value={2}>Director</option>
+                            <option value={3}>Assistant manager</option>
+                            <option value={4}>Developer</option>
+                        </select>
                     </div>
 
-                    <div className="form-group">
-                        <label htmlFor="identification">Identification</label>
+                    <div className="form-group mt-3">
+                        <label className="form-label" htmlFor="identification">Identification</label>
                         <input
                             type="number"
                             className="form-control"
@@ -161,8 +168,8 @@ export const UpdateConsultant = () => {
                         />
                     </div>
 
-                    <div className="form-group">
-                        <label htmlFor="city">City</label>
+                    <div className="form-group mt-3">
+                        <label className="form-label" htmlFor="city">City</label>
                         <input
                             type="text"
                             className="form-control"
@@ -174,8 +181,20 @@ export const UpdateConsultant = () => {
                         />
                     </div>
 
-                    <div className="form-group">
-                        <label htmlFor="age">Age</label>
+                    <div className="form-group mt-3">
+                        <label className="form-label" htmlFor="test">tets</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="test"
+                            required
+                            onChange={handleConsultantChange}
+                            name="test"
+                        />
+                    </div>
+
+                    <div className="form-group mt-3">
+                        <label className="form-label" htmlFor="age">Age</label>
                         <input
                             type="number"
                             className="form-control"
@@ -186,7 +205,7 @@ export const UpdateConsultant = () => {
                             name="age"
                         />
                     </div>
-                    <button onClick={updateConsultant} className="btn btn-success">
+                    <button onClick={updateConsultant} className="btn btn-success mt-3">
                         Submit
                     </button>
                 </div>
