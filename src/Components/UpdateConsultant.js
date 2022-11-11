@@ -170,15 +170,19 @@ export const UpdateConsultant = () => {
 
                     <div className="form-group mt-3">
                         <label className="form-label" htmlFor="city">City</label>
-                        <input
+                        <select
                             type="text"
-                            className="form-control"
+                            className="form-select"
                             id="city"
                             required
-                            value={currentConsultant.city}
-                            onChange={handleConsultantChange}
+                            value={consultant.city}
+                            onChange={handleMenuChange}
                             name="city"
-                        />
+                        >
+                            <option selected></option>
+                            <option value={"Bogotá"}>Bogotá</option>
+                            <option value={"Medellín"}>Medellín</option>
+                        </select>
                     </div>
 
                     <div className="form-group mt-3">
